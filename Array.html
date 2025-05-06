@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Array</h2>
+<script>
+const arr = [1,2,3,4,5,6,7,8,9,10];
+console.log(arr[0]);
+console.log(arr[arr.length - 1]);
+
+const arr1 = new Array("this", "is", "a", "string");
+console.log(arr1[0]);
+
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}
+
+for (let x of arr) {
+    console.log(x);
+}
+
+function reverse(arr){
+    let result = [];
+    for (let i = arr.length-1;i>-1;i--){
+        result.push(arr[i]);
+    }
+    console.log(...result);
+    return result;
+}
+reverse(arr)
+
+console.log(arr.length)
+console.log(arr.push(11))
+console.log(arr.pop())
+console.log(arr.shift())
+console.log(arr.unshift(0))
+console.log(arr.slice(0, 5))
+console.log(arr.splice(0, 8))
+console.log(arr.flat())
+
+</script>
+</body>
+</html>
