@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sidebar Menu</title>
+  <style>
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      transition: left 0.3s ease;
+    }
+    #sidebar.active {
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+
+<button onclick="toggleSidebar()">Toggle Sidebar</button>
+<div id="sidebar">
+  <h3>Sidebar Menu</h3>
+  <p>Link 1</p>
+  <p>Link 2</p>
+  <p>Link 3</p>
+</div>
+
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
