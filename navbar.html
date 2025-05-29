@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Basic Navbar Toggle with Layout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    button#toggleBtn {
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #005fa3;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    button#toggleBtn:hover {
+      background-color: #004a82;
+    }
+
+    .nav-links {
+      display: none;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      background-color: #004a82;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: absolute;
+      top: 100%;
+      right: 20px;
+      width: 150px;
+      border-radius: 0 0 8px 8px;
+      z-index: 100;
+    }
+
+    .nav-links.active {
+      display: block;
+    }
+
+    .nav-links li {
+      padding: 12px 20px;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .nav-links li:hover {
+      background-color: #f0f0f0;
+    }
+    .nav-links li:last-child {
+      border-bottom: none;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      min-height: 300px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 20px;
+      color: #777;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        right: auto;
+        width: 100%;
+        border-radius: 0 0 0 0;
+        box-shadow: none;
+        position: static;
+      }
+      main {
+        margin: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>My Website</h1>
+  <button id="toggleBtn">Menu</button>
+  <ul class="nav-links" id="navLinks">
+    <li style="text">Home</li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+</header>
+
+<main>
+  <h2>Welcome to My Website</h2>
+  <p>This is a simple page layout with a header containing a toggleable navigation menu, a main content area, and a footer. Click the "Menu" button to open or close the navigation links.</p>
+  <p>You can customize the content here however you want.</p>
+</main>
+
+<footer>
+  &copy; 2025 My Website. All rights reserved.
+</footer>
+
+<script>
+  const btn = document.getElementById('toggleBtn');
+  const nav = document.getElementById('navLinks');
+
+  btn.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+
+  
+  document.addEventListener('click', (e) => {
+    if (!btn.contains(e.target) && !nav.contains(e.target)) {
+      nav.classList.remove('active');
+    }
+  });
+</script>
+
+</body>
+</html>
