@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Custom Play/Pause Button</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background: #f4f4f4;
+text-align: center;
+padding: 50px;
+}
+video {
+width: 80%;
+max-width: 600px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.controls {
+margin-top: 20px;
+}
+#playPauseBtn {
+background-color: #4CAF50;
+border: none;
+color: white;
+padding: 12px 25px;
+font-size: 18px;
+border-radius: 5px;
+cursor: pointer;
+}
+#playPauseBtn:hover {
+background-color: #45a049;
+}
+</style>
+</head>
+<body>
+
+<h1>Custom Play/Pause Button for Video</h1>
+<video id="myVideo" src="./Baburao Ganpatrao Apte Hit Comedy Scene | परेश रावल की कॉमेडी | बाबूराव गणपतराव आप्टे कॉमेडी.mp4"></video>
+<div class="controls">
+<button id="playPauseBtn" onclick="togglePlayPause()">Play</button>
+</div>
+<script>
+const video = document.getElementById('myVideo');
+const button = document.getElementById('playPauseBtn');
+function togglePlayPause() {
+if (video.paused) {
+video.play();
+button.textContent = "Pause";
+} else {
+video.pause();
+button.textContent = "Play";
+}
+}
+video.addEventListener('ended', () => {
+button.textContent = "Play";
+});
+</script>
+
+</body>
+</html>

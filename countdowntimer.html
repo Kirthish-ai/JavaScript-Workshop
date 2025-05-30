@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Countdown Timer</title>
+<style>
+body {
+font-family: 'Segoe UI', sans-serif;
+background-color: #f0f0f0;
+text-align: center;
+padding: 50px;
+}
+h1 {
+color: #333;
+}
+#countdown {
+font-size: 2rem;
+margin-top: 30px;
+padding: 20px;
+background: #fff;
+display: inline-block;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.expired {
+color: red;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<h1>Countdown to May 31-2025</h1>
+<div id="countdown">Loading...</div>
+<script>
+const futureDate = new Date("May 31, 2025 01:00:00").getTime();
+const countdown = document.getElementById("countdown");
+const timer = setInterval(() => {
+const now = new Date().getTime();
+const distance = futureDate - now;
+if (distance <= 0) {
+clearInterval(timer);
+countdown.innerHTML = "<span class='expired'>Countdown finished!</span>";
+return;
+}
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+countdown.innerHTML = `
+${days}d ${hours}h ${minutes}m ${seconds}s
+`;
+}, 1000);
+</script>
+
+</body>
+</html>

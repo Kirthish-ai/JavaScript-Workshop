@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Word Generator</title>
+<style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #f9f9f9;
+text-align: center;
+padding: 50px;
+}
+h1 {
+color: #333;
+}
+input[type="number"] {
+padding: 10px;
+font-size: 16px;
+width: 180px;
+margin-top: 10px;
+}
+button {
+padding: 10px 20px;
+font-size: 16px;
+margin-left: 10px;
+cursor: pointer;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 4px;
+}
+button:hover {
+background-color: #45a049;
+}
+#output {
+margin-top: 30px;
+padding: 20px;
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+max-width: 700px;
+margin-left: auto;
+margin-right: auto;
+font-size: 18px;
+line-height: 1.6;
+text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h1>Ee Sala Cup Namde</h1>
+<p>Kitne baar sunna hai</p>
+<input type="number" id="wordCount" min="1" placeholder="e.g. 30">
+<button onclick="generateLorem()">Generate</button>
+<div id="output"></div>
+<script>
+const loremWords = [
+"ee","sala","cup","namde"
+];
+function generateLorem() {
+const count = parseInt(document.getElementById("wordCount").value);
+const output = document.getElementById("output");
+if (isNaN(count) || count < 1) {
+output.innerText = "Please enter a valid number of words.";
+return;
+}
+let result = [];
+for (let i = 0; i < count; i++) {
+const randomIndex = Math.floor(Math.random() * loremWords.length);
+result.push(loremWords[randomIndex]);
+}
+
+result[0] = result[0].charAt(0).toUpperCase() + result[0].slice(1);
+const sentence = result.join(" ") + ".";
+output.innerText = sentence;
+}
+</script>
+
+</body>
+</html>
