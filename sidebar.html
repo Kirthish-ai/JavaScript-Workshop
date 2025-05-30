@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sidebar Menu</title>
-  <style>
-    #sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      transition: left 0.3s ease;
-    }
-    #sidebar.active {
-      left: 0;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Sidebar Menu</title>
+<style>
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  transition: left 0.3s ease;
+}
+#sidebar.active {
+  left: 0;
+}
+.sidebar-btn {
+  position: absolute;
+  top: 20px;
+  left: 50px; 
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#back-btn {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background-color: #444;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+#back-btn:hover {
+  background-color: #555;
+}
+</style>
 </head>
 <body>
 
-<button onclick="toggleSidebar()">Toggle Sidebar</button>
+<button class="sidebar-btn" onclick="toggleSidebar()">Sidebar</button>
+
 <div id="sidebar">
+  <button id="back-btn" onclick="toggleSidebar()">← Back</button>
   <h3>Sidebar Menu</h3>
   <p>Link 1</p>
   <p>Link 2</p>
@@ -31,10 +52,10 @@
 </div>
 
 <script>
-  function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('active');
-  }
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('active');
+}
 </script>
 
 </body>
